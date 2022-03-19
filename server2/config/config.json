@@ -1,0 +1,10 @@
+{
+  "log_level": "DEBUG",
+  "server": true,
+  "ui_config": {
+    "enabled": true
+  },
+  "data_dir": "/consul/data",
+  "bind_addr": "172.16.238.11",
+  "retry_join": ["172.16.238.10", "172.16.238.12"]
+}

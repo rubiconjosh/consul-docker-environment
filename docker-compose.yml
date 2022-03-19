@@ -1,0 +1,34 @@
+services:
+  consul-server-1:
+    image: consul
+    volumes:
+      - ./server1/config:/consul/config
+      - ./server1/data:/consul/data
+    networks:
+      consul-server-network:
+        ipv4_address: 172.16.238.10
+  consul-server-2:
+    image: consul
+    volumes:
+      - ./server2/config:/consul/config
+      - ./server2/data:/consul/data
+    networks:
+      consul-server-network:
+        ipv4_address: 172.16.238.11
+  consul-server-3:
+    image: consul
+    volumes:
+      - ./server3/config:/consul/config
+      - ./server3/data:/consul/data
+    networks:
+      consul-server-network:
+        ipv4_address: 172.16.238.12
+networks:
+  consul-server-network:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1
